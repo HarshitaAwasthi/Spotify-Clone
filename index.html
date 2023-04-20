@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPOTIFY - vibe with music</title>
+    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="brand"><img src="logo.png" alt="Spotify"> Spotify </li>
+            <li>Home</li>
+            <li>About</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="songsList">
+            <h1>Let the music heal your soul !</h1>
+            <div class="songItemContainer">
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">05:50 </span><i class="0 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">06:25 </span><i class="1 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">04:26 </span><i class="2 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">04:27 </span><i class="3 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">05:06 </span><i class="4 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">03:56 </span><i class="5 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">06:19 </span><i class="6 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">05:03 </span><i class="7 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">05:56 </span><i class="8 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+                <div class="songItem">
+                    <img src="covers/1.jpg" alt="1">
+                    <span class="songDetail"><p class="songName">Tere Hawaale</p><p class="singerName">Arijit Singh</p></span>
+                    <span class="songListPlay"><span class="timeStamp">06:51 </span><i class="9 fa-sharp fa-solid fa-circle-play" id="songPlay"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="songBanner"></div>
+    </div>
+
+    <div class="bottom">
+        <div class="icons">
+            <!--FontAwesome icons-->
+            <i class="fa-solid fa-2x fa-backward-step" id="backButton"></i>
+            <i class="fa-sharp fa-2x fa-solid fa-circle-play" id="masterPlayButton"></i>
+            <i class="fa-solid fa-2x fa-forward-step" id="fwdButton"></i>
+        </div>
+        <input type="range" name="SongProgress" id="myProgressBar" min="0" max="100" value="0">
+        <div class="songInfo">
+            <img src="covers/1.jpg" alt="" id="masterSongImg"> <span><p class="masterSongName">Tere Hawaale </p><p class="masterSingerName">Arijit Singh</p></span>
+            <img src="playing.gif" width="60px" alt="" id="gif">
+        </div>
+        <div class="Vol">
+            <i class="fa-solid fa-volume-low"></i> <span><input type="range" name="Volume" id="volumeBtn"></span>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/8ed37b872f.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
