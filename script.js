@@ -1,4 +1,4 @@
-//initializing the variables used below
+/***************initializing the variables used below****************/
 let currSongIndex=0;
 let masterPlayButton=document.getElementById("masterPlayButton");
 let masterSongName=document.getElementsByClassName("masterSongName")[0];
@@ -8,6 +8,7 @@ let audioELement=new Audio("songs/1.mp3");
 let gif=document.getElementById("gif");
 let progressBar=document.getElementById("myProgressBar");
 let songItems=document.querySelectorAll(".songItem");       //Array containing all song items
+
 
 //array of objects
 let songs = [
@@ -38,26 +39,38 @@ const makeAllPlays = function() {
     }
 }
 
+
+
+/*********************Listen to events************************/
+
 for(var i=0;i<songItems.length;i++) {
     songItems[i].querySelector("#songPlay").addEventListener("click", function(e) {
-        makeAllPlays();
-        e.target.classList.remove("fa-circle-play");
-        e.target.classList.add("fa-circle-pause");
-        currSongIndex=e.target.classList[0];
-        audioELement.currentTime=0;
-        audioELement.src=songs[currSongIndex].songPath;
-        audioELement.play();
+        if(audioELement.paused || audioELement.currentTime<=0) {
+            makeAllPlays();
+            e.target.classList.remove("fa-circle-play");
+            e.target.classList.add("fa-circle-pause");
+            currSongIndex=parseInt(e.target.classList[0]);
+            audioELement.currentTime=0;
+            audioELement.src=songs[currSongIndex].songPath;
+            audioELement.play();
 
-        masterPlayButton.classList.remove("fa-circle-play");
-        masterPlayButton.classList.add("fa-circle-pause");
-        gif.style.opacity = 1;
-        masterSongName.innerHTML=songs[currSongIndex].songName;
-        masterSingerName.innerHTML=songs[currSongIndex].singerName;
-        masterSongImg.src=songs[currSongIndex].coverImage;
+            masterPlayButton.classList.remove("fa-circle-play");
+            masterPlayButton.classList.add("fa-circle-pause");
+            gif.style.opacity = 1;
+            masterSongName.innerHTML=songs[currSongIndex].songName;
+            masterSingerName.innerHTML=songs[currSongIndex].singerName;
+            masterSongImg.src=songs[currSongIndex].coverImage;
+        }
+        else {
+            audioELement.pause();
+            makeAllPlays();
+            gif.style.opacity = 0;
+            masterPlayButton.classList.remove("fa-circle-pause");
+            masterPlayButton.classList.add("fa-circle-play");
+        }
     });
 }
 
-//Listen to events
 masterPlayButton.addEventListener("click", function() {
     if(audioELement.paused || audioELement.currentTime<=0) {
         audioELement.play();
@@ -70,6 +83,7 @@ masterPlayButton.addEventListener("click", function() {
         masterPlayButton.classList.remove("fa-circle-pause");
         masterPlayButton.classList.add("fa-circle-play");
         gif.style.opacity = 0;
+        makeAllPlays();
     }
 });
 
@@ -126,4 +140,32 @@ document.getElementById("backButton").addEventListener("click",function() {
         masterSingerName.innerHTML=songs[currSongIndex].singerName;
         masterSongImg.src=songs[currSongIndex].coverImage;
     }
+});
+
+document.getElementById("volumeBtn").addEventListener("change", function(e) {
+    audioELement.volume=e.currentTarget.value/100;
+});
+
+//If one song ends, play the next song
+audioELement.addEventListener("ended",function() {
+    if(currSongIndex>=9) {
+        currSongIndex=0;
+    }
+    else {
+        currSongIndex+=1;
+    }
+
+    audioELement.src=songs[currSongIndex].songPath;
+    audioELement.currentTime=0;
+    audioELement.play();
+
+    makeAllPlays();
+    songItems[currSongIndex].querySelector("#songPlay").classList.remove("fa-circle-play");
+    songItems[currSongIndex].querySelector("#songPlay").classList.add("fa-circle-pause");
+    masterPlayButton.classList.remove("fa-circle-play");
+    masterPlayButton.classList.add("fa-circle-pause");
+    gif.style.opacity = 1;
+    masterSongName.innerHTML=songs[currSongIndex].songName;
+    masterSingerName.innerHTML=songs[currSongIndex].singerName;
+    masterSongImg.src=songs[currSongIndex].coverImage;
 })

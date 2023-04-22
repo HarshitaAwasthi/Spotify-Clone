@@ -84,7 +84,10 @@ nav ul li {
 }
 
 .icons {
-    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    padding-bottom: 8px;
 }
 
 .icons i {
@@ -93,7 +96,7 @@ nav ul li {
 
 #myProgressBar {
     height: 4px;
-    width: 48vw;
+    width: 42vw;
     cursor: pointer;
 }
 
@@ -106,6 +109,12 @@ nav ul li {
     transform: scale(1);
 }
 
+#shuffleButton {
+    transform: scale(1.0);
+    color: rgb(199, 197, 197);
+    margin-right: 20px;
+}
+
 #backButton {
     transform: scale(0.6);
     color: rgb(199, 197, 197);
@@ -114,6 +123,11 @@ nav ul li {
 #fwdButton {
     transform: scale(0.6);
     color: rgb(199, 197, 197);
+}
+
+#loopButton {
+    width: 18px;
+    margin-left: 20px;
 }
 
 .songItem {
@@ -161,7 +175,12 @@ nav ul li {
 }
 
 .masterSongName {
+    color: white;
     font-size: medium;
+}
+
+.masterSingerName {
+    color: rgb(187, 188, 219);
 }
 
 .songInfo img {
