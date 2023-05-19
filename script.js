@@ -8,6 +8,8 @@ let audioELement=new Audio("songs/1.mp3");
 let gif=document.getElementById("gif");
 let progressBar=document.getElementById("myProgressBar");
 let songItems=document.querySelectorAll(".songItem");       //Array containing all song items
+let loopBtn=document.getElementById("loopButton");
+let shuffleBtn=document.getElementById("shuffleButton");
 
 
 //array of objects
@@ -146,13 +148,21 @@ document.getElementById("volumeBtn").addEventListener("change", function(e) {
     audioELement.volume=e.currentTarget.value/100;
 });
 
+
 //If one song ends, play the next song
 audioELement.addEventListener("ended",function() {
-    if(currSongIndex>=9) {
-        currSongIndex=0;
+    
+    if(shuffleBtn.src.match("shuffle-on2.png")) {       //If shuffle is ON
+        let randomIndex=Math.floor((Math.random())*10);
+        currSongIndex=randomIndex;
     }
-    else {
-        currSongIndex+=1;
+    else {                          //If shuffle is off
+        if(currSongIndex>=9) {
+            currSongIndex=0;
+        }
+        else {
+            currSongIndex+=1;
+        }
     }
 
     audioELement.src=songs[currSongIndex].songPath;
@@ -168,4 +178,44 @@ audioELement.addEventListener("ended",function() {
     masterSongName.innerHTML=songs[currSongIndex].songName;
     masterSingerName.innerHTML=songs[currSongIndex].singerName;
     masterSongImg.src=songs[currSongIndex].coverImage;
-})
+});
+
+//loop functionality
+loopBtn.addEventListener("click",function() {
+    if(this.src.match("loop-off.png")) {
+        this.src="loop-all2.png";
+        audioELement.loop=false;
+    }
+    else if(this.src.match("loop-all2.png")) {
+        this.src="loop-one2.png";
+        audioELement.loop=true;
+    }
+    else {
+        this.src="loop-off.png";
+        audioELement.loop=false;
+    }
+});
+
+//Shuffle play functionality
+shuffleBtn.addEventListener("click", function() {
+    if(this.src.match("shuffle-off.png")) {
+        this.src="shuffle-on2.png";
+    }
+    else {
+        this.src="shuffle-off.png";
+    }
+});
+
+// shuffleBtn.addEventListener("mouseover", function() {
+//     if(this.src.match("shuffle-off.png")) {
+//         document.getElementById("shuffON").style.opacity=1;
+//     }
+//     else {
+//         document.getElementById("shuffOFF").style.opacity=1;
+//     }
+// });
+
+// shuffleBtn.addEventListener("mouseout", function() {
+//     document.getElementById("shuffON").style.opacity=0;
+//     document.getElementById("shuffOFF").style.opacity=0;
+// });

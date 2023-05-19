@@ -73,7 +73,7 @@ nav ul li {
 
 .bottom {
     position: sticky;
-    height: 98px;
+    height: 110px;
     bottom: 0;
     background-color: black;
     color: white;
@@ -94,6 +94,10 @@ nav ul li {
     cursor: pointer;
 }
 
+.icons img {
+    cursor: pointer;
+}
+
 #myProgressBar {
     height: 4px;
     width: 42vw;
@@ -109,25 +113,49 @@ nav ul li {
     transform: scale(1);
 }
 
+#masterPlayButton:hover {
+    transform: scale(1.04);
+}
+
 #shuffleButton {
-    transform: scale(1.0);
-    color: rgb(199, 197, 197);
     margin-right: 20px;
+    width: 23px;
+}
+
+#shuffleButton:hover {
+    transform: scale(1.05);
 }
 
 #backButton {
     transform: scale(0.6);
-    color: rgb(199, 197, 197);
+    color: rgb(125, 123, 123);
+}
+
+#backButton:hover {
+    color: white;
 }
 
 #fwdButton {
     transform: scale(0.6);
-    color: rgb(199, 197, 197);
+    color: rgb(125, 123, 123);
+}
+
+#fwdButton:hover {
+    color: white;
 }
 
 #loopButton {
-    width: 18px;
+    width: 23px;
     margin-left: 20px;
+}
+
+#loopButton:hover {
+    transform: scale(1.05);
+}
+
+.songItem:hover {
+    background-color: rgb(228, 237, 245);
+    transform: scale(1.01);
 }
 
 .songItem {
@@ -139,6 +167,10 @@ nav ul li {
     background-color:  rgb(187, 188, 219);
     margin: 10px 12px;
     border-radius: 15px;
+}
+
+#songPlay:hover {
+    scale: 1.03;
 }
 
 #songPlay {
